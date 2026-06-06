@@ -41,6 +41,13 @@ app.post('/create', async (req, res) => {
 });
 
 
+app.get('/delete/:id', async (req, res) => {
+  
+  await userModel.findByIdAndDelete(req.params.id);
+
+  res.redirect('/read');
+});
+
 
 
 app.listen(port, (error) => {
