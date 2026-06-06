@@ -49,6 +49,20 @@ app.get('/delete/:id', async (req, res) => {
 });
 
 
+app.get('/edit/:userId', async (req, res) => {
+  
+   let updateUser = await userModel.findOne({_id:req.params.userId})
+
+  res.render('edit',{updateUser})
+});
+
+app.post('/update/:userId', async (req, res) => {
+  let {imageURL, name , email} = req.body;
+   let user= await userModel.findOneAndUpdate({_id:req.params.userId},{imageURL, name , email},{new:true})
+
+  res.redirect('/read')
+});
+
 
 app.listen(port, (error) => {
   if (error) throw error;

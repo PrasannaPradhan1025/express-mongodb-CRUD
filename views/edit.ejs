@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../stylesheets/styles.css">
+</head>
+
+<body class="bg-[#0B0B1E] text-white">
+
+  <!-- NAV -->
+  <div class="nav mx-10 mt-6 p-4 bg-[#1A1953] rounded-xl text-white flex gap-4 shadow-lg">
+
+    <a href="/" class="px-4 py-2 rounded-md hover:bg-white/10 transition">
+      Home
+    </a>
+
+    <a href="/read" class="px-4 py-2 rounded-md hover:bg-white/10 transition">
+      Read Users
+    </a>
+
+  </div>
+
+  <!-- FORM SECTION -->
+  <div class="m-4 max-w-3xl mx-auto">
+
+    <p class="p-4 text-2xl font-semibold text-gray-200">
+      Please Update the Details
+    </p>
+
+    <form action="/update/<%=updateUser._id%>" method="post"
+      class="p-6 bg-[#1A1953] rounded-xl shadow-lg border border-white/10">
+
+      <div class="flex flex-col gap-4">
+
+        <input
+          class="px-4 py-3 w-full bg-[#2A2A6F] text-white rounded-md
+                 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          type="text"
+          name="name"
+          value="<%=updateUser.name %>"
+          placeholder="Update your name"
+        >
+
+        <input
+          class="px-4 py-3 w-full bg-[#2A2A6F] text-white rounded-md
+                 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          type="text"
+          name="email"
+          value="<%=updateUser.email%>"
+          placeholder="Enter your email"
+        >
+
+        <input
+          class="px-4 py-3 w-full bg-[#2A2A6F] text-white rounded-md
+                 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          type="text"
+          name="imageURL"
+          value="<%=updateUser.imageURL%>"
+          placeholder="Enter your image URL"
+        >
+
+        <button
+          class="px-4 py-3 w-full sm:w-1/3 bg-yellow-500 text-black rounded-md
+                 hover:bg-yellow-400 active:scale-[0.98] transition
+                 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+          type="submit"
+        >
+          Update
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</body>
+</html>
